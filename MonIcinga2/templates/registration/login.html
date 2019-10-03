@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/login/css/login.css' %}">
+
+    <title>Регистрация</title>
+</head>
+
+<body class="login" data-admin-utc-offset="0">
+
+    <div id="container">
+
+        <div id="header">
+            <div id="branding">
+
+                <h1 id="site-name">Авторизация</h1>
+
+            </div>
+        </div>
+
+    <div id="content" class="colM">
+        <div id="content-main">
+
+            {% if next %}
+                <form action="/login/?next={{next}}" method="post">
+            {% else %}
+                <form action="/login/" method="post">
+            {% endif %}
+                    {% csrf_token %}
+
+                <div class="form-row">
+                    <label for="id_username">Логин:</label>
+                    <input type="text" name="username" required maxlength="254" autofocus id="id_username" />
+                </div>
+
+                <div class="form-row">
+                    <label for="id_password">Пароль:</label>
+                    <input type="password" name="password" required id="id_password" />
+                </div>
+
+                <div class="submit-row">
+                    <input id="submit-btn" type="submit" value="Вход">
+                </div>
+
+                </form>
+
+        </div>
+            <br class="clear" />
+    </div>
+
+    <div id="footer"></div>
+    </div>
+
+</body>
+</html>

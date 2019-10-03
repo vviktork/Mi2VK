@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <--link rel="shortcut icon" href="#" -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    {% block styles %}{% endblock %}
+
+    <script type="text/javascript" src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
+
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark fixed-top flex-md-nowrap p-2 shadow">
+        <div class="container-fluid">
+
+            <div class="col-1 text-left">
+              <ul class="navbar-nav px-2">
+
+                  <li class="h3 nav-item text-warning" id="connect">
+                    {% if connect %}
+                        <p class="my-auto text-success">On-line</p>
+                    {% else %}
+                        <p class="badge badge-warning my-auto text-danger ">Off-line</p>
+                    {% endif %}
+                  </li>
+
+              </ul>
+            </div>
+
+            <div class="h4 col-1 text-left">
+
+              {% if critical < 40 %}
+                <span class="badge my-auto text-warning">{{critical}} CRITICAL </span>
+              {% else %}
+                <span class="badge badge-danger my-auto text-warning">{{critical}} CRITICAL </span>
+              {% endif %}
+
+            </div>
+
+            <div class="col-8 text-center">
+              <span id="time"></span>
+            </div>
+
+            <div class="col-2 text-right">
+              <button type="button" class="btn btn-dark btn-sm font-weight-bolder font-italic mr-0" id="vk">
+                  ВК</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="12">
+        <div class="row">
+            <div class="col-12 bg-secondary pt-5" id="123">
+                {% block content %}{% endblock %}
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="{% static 'monitor/js/time.js'%}"></script>
+
+</html>

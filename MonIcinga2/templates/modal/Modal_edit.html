@@ -1,0 +1,41 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Error JS</h5>
+      </div>
+
+      <div class="modal-body">
+        <form method="post" enctype="multipart/form-data" action="/monitoring/">
+          {% csrf_token %}
+
+          <input id="number-table" type="hidden" name="number">
+
+          <div class="form-group">
+            <label for="trable-number" class="col-form-label">Заявка (последние 4 цифры):</label>
+            <input type="text" name="trable" class="form-control" id="trable-number" maxlength="4">
+          </div>
+
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Сообщение:</label>
+            <textarea class="form-control" name="message" id="message-text" maxlength="99"></textarea>
+          </div>
+
+          <div class="form-group" id="checkbox2">
+            <input type="checkbox" name="table2" value="True"> Переместить в заведенные заявками<Br>
+          </div>
+
+          <div class="form-group" id="checkbox3">
+            <input type="checkbox" name="table3" value="True"> Переместить в ожидающие решения<Br>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="btn-mod1" data-dismiss="modal">Закрыть</button>
+            <button type="submit" class="btn btn-primary" id="btn-mod2">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

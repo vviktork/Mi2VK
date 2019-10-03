@@ -1,0 +1,75 @@
+body{
+    background: #343A40;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -user-select: none;
+}
+
+#time{
+    color:#ebd7a4;
+    font-size:20pt;
+}
+
+#vk{
+    font-size: 12pt;
+    border: 1px solid white;
+}
+
+.hidden{
+  display:none;
+  visibility:hidden;
+}
+
+table.table-bordered > thead > tr > th,
+table.table-bordered > tbody > tr > td{
+    border:2px solid white;
+}
+
+#editModalLabel,
+#deleteModalLabel{
+    font-size:25pt;
+    font-weight:bold;
+}
+
+.form-control{
+    font-size:20pt;
+    font-weight:bold;
+}
+
+#checkbox2,
+#checkbox3,
+.col-form-label{
+    font-size:15pt;
+    font-weight:bold;
+    /*width: 100px;
+    height: 100x;*/
+}
+
+#btn-mod1,
+#btn-mod2,
+#btn-mod3,
+#btn-mod4{
+    font-size:15pt;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+bottom: .5em;
+}

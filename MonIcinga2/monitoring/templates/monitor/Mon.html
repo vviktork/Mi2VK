@@ -1,0 +1,140 @@
+{% extends "basis/base.html" %}
+{% load static %}
+
+{% block title %}Мониторинг{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'monitor/css/Mon.css' %}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'monitor/js/mon.js'%}"></script>
+    <script src="{% static 'monitor/js/modal.js'%}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="1234">
+
+         <div class="card-body border-warning p-3 col-12 up-1" id="12341">
+            <p class="h4 text-center text-white">Объекты без заявок</p>
+            <table id="TableID1" class="table table-bordered table-hover
+            table-responsive-lg table-sm my-0 css-serial">
+
+              <thead>
+                <tr class="table-danger text-center font-italic">
+                  {% for title in titles_1 %}
+                      <th scope="col">{{title}}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+
+              <tbody>
+                  {% for user_ in table_1 %}
+                    <tr class="h5 table-warning table-striped text-center font-weight-bolder">
+                    {% for user in user_ %}
+                        {% if user == 'CRITICAL'%}
+                            <td class="text-danger font-weight-bolder font-italic" scope="row">{{user}}</td>
+                        {% else %}
+                            <td scope="row">{{user}}</td>
+                        {% endif %}
+                    {% endfor %}
+
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm">Edit</button>
+                        </td>
+
+                    </tr>
+                  {% endfor %}
+
+              </tbody>
+            </table>
+         </div>
+
+
+        <div class="card-body border-success p-3 col-12 up-1 mt-0" id="12345">
+            <p class="h4 text-center text-white">Объекты с заведенными заявками</p>
+            <table id="TableID2" class="table table-bordered table-hover table-responsive-lg table-sm my-0">
+              <thead class="thead">
+                <tr class="table-primary text-center font-italic">
+                  {% for title in titles %}
+                      <th scope="col">{{title}}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+
+                  {% for user_ in table_2 %}
+                    <tr class="h5 table-success table-striped text-center font-weight-bolder">
+                        {% for user in user_ %}
+                            {% if user == 'CRITICAL'%}
+                                <td class="text-danger font-weight-bolder font-italic" scope="row">{{user}}</td>
+                            {% elif user == 'OK'%}
+                                <td class="text-success font-weight-bolder font-italic" scope="row">{{user}}</td>
+                            {% else %}
+                                <td scope="row">{{user}}</td>
+                            {% endif %}
+                        {% endfor %}
+
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm my-1 mx-1">Delete</button>
+                        </td>
+
+                    </tr>
+                  {% endfor %}
+
+              </tbody>
+            </table>
+        </div>
+
+        <div class="card-body border-primary p-3 col-12 up-1 mt-0">
+            <p class="h4 text-center text-white">Объекты ожидающие решения</p>
+            <table id="TableID3" class="table table-bordered table-hover table-responsive-lg table-sm my-0">
+              <thead>
+                <tr class="table-warning text-center font-italic">
+                  {% for title in titles %}
+                      <th scope="col">{{title}}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+
+                  {% for user_ in table_3 %}
+                    <tr class="h5 table-secondary table-striped text-center font-weight-bolder">
+                        {% for user in user_ %}
+                            {% if user == 'CRITICAL'%}
+                                <td class="text-danger font-weight-bolder font-italic" scope="row">{{user}}</td>
+                            {% elif user == 'OK'%}
+                                <td class="text-success font-weight-bolder font-italic" scope="row">{{user}}</td>
+                            {% else %}
+                                <td scope="row">{{user}}</td>
+                            {% endif %}
+                        {% endfor %}
+
+                           <td>
+                                <div class="buttons">
+                                    <button type="button" class="btn btn-secondary btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm my-1 mx-1">Delete</button>
+                                </div>
+                            </td>
+
+                    </tr>
+                  {% endfor %}
+
+              </tbody>
+            </table>
+        </div>
+    </div>
+
+<!-- Модальное окно -->
+    {% include "modal/Modal_edit.html" %}
+    {% include "modal/Modal_delete.html" %}
+    {% include "modal/Modal_vk.html" %}
+
+
+
+
+
+{% endblock %}
+
+
